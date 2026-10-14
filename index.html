@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Digital Media Academy offers free, beginner-friendly digital skills training. Learn, create, and grow.">
+  <title>Digital Media Academy | Learn. Create. Grow.</title>
+  <style>
+    :root {
+      --bg: #061126; --panel: #0d1b36; --panel2: #111f3f;
+      --text: #f5f7ff; --muted: #b8c4df; --blue: #39b9ff;
+      --purple: #8055ff; --green: #10c993; --line: rgba(160,185,255,.18);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; color: var(--text); background: var(--bg); font-family: Arial, Helvetica, sans-serif; line-height: 1.6; }
+    a { color: inherit; }
+    .container { width: min(1120px, 92%); margin: 0 auto; }
+    header { position: sticky; top: 0; z-index: 10; background: rgba(4,14,32,.94); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 800; letter-spacing: .04em; line-height: 1.15; }
+    .logo { width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center; color: white; font-size: 18px; font-weight: 900; background: linear-gradient(135deg, var(--blue), var(--purple)); box-shadow: 0 8px 25px #5138c455; }
+    .brand small { display: block; color: var(--muted); font-size: 10px; letter-spacing: .25em; margin-top: 4px; }
+    nav { display: flex; gap: 24px; align-items: center; }
+    nav a { text-decoration: none; color: var(--muted); font-size: 14px; }
+    nav a:hover { color: white; }
+    .button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 0; border-radius: 999px; padding: 13px 20px; text-decoration: none; font-weight: 700; cursor: pointer; transition: transform .2s, opacity .2s; }
+    .button:hover { transform: translateY(-2px); }
+    .primary { background: linear-gradient(110deg, #377dff, #8251ff); color: white; }
+    .whatsapp { background: var(--green); color: #041b1a; }
+    .hero { overflow: hidden; position: relative; padding: 82px 0 88px; background: radial-gradient(ellipse at 78% 30%, #4822a766 0, transparent 38%), radial-gradient(ellipse at 65% 70%, #075d9b55 0, transparent 36%), linear-gradient(120deg, #071126, #0a1532 62%, #110d2c); }
+    .hero:after { content: ""; position: absolute; width: 420px; height: 420px; border: 1px solid #5a69ff22; border-radius: 50%; right: -130px; top: -160px; box-shadow: 0 0 0 45px #5a69ff0b, 0 0 0 90px #5a69ff08; pointer-events: none; }
+    .hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 38px; align-items: center; position: relative; z-index: 1; }
+    .eyebrow { display: inline-block; color: #cbdcff; background: #233a6e; border: 1px solid #4965a8; border-radius: 999px; padding: 6px 13px; font-size: 13px; }
+    h1 { font-size: clamp(2.6rem, 6vw, 4.6rem); line-height: .99; letter-spacing: -.055em; margin: 20px 0 16px; }
+    h1 span { background: linear-gradient(100deg, var(--blue), #9a68ff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .hero h2 { font-size: 1.35rem; margin: 0 0 8px; }
+    .hero p { color: var(--muted); max-width: 530px; margin: 0 0 24px; }
+    .hero-art { min-height: 300px; display: grid; place-items: center; position: relative; }
+    .screen { width: min(100%, 440px); padding: 15px; border: 1px solid #4d70bd99; border-radius: 20px; background: linear-gradient(145deg, #1b2e55, #09152c); transform: rotate(2deg); box-shadow: 0 28px 70px #0008; }
+    .screen-top { display: flex; gap: 6px; padding: 3px 0 12px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: #5874ad; }
+    .timeline { background: #071126; padding: 12px; border-radius: 12px; }
+    .preview { height: 145px; border-radius: 8px; display: grid; place-items: center; font-size: 54px; background: linear-gradient(135deg, #143f77, #6437a6 60%, #0d7892); }
+    .track { height: 10px; border-radius: 4px; margin-top: 8px; background: linear-gradient(90deg, #35c9ff 0 22%, #875bff 22% 51%, #10c993 51% 76%, #f8b84e 76%); }
+    .track:nth-child(4) { width: 84%; background: linear-gradient(90deg, #8d65ff 0 35%, #28b7ec 35% 72%, #e75fbc 72%); }
+    .floating { position: absolute; border: 1px solid #5795ff99; background: #10244b; color: #d7e8ff; padding: 13px 16px; border-radius: 14px; font-weight: 800; box-shadow: 0 12px 30px #0005; }
+    .floating.one { top: 15px; left: 0; transform: rotate(-8deg); }
+    .floating.two { bottom: 10px; right: 0; transform: rotate(6deg); color: #b8ffe9; border-color: #10c99388; }
+    section { padding: 72px 0; }
+    .section-head { margin-bottom: 28px; }
+    .section-tag { color: var(--blue); font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .16em; }
+    h2 { line-height: 1.2; }
+    .section-head h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); margin: 8px 0; }
+    .section-head p { color: var(--muted); margin: 0; }
+    .courses { background: #080f22; }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .card { background: linear-gradient(150deg, #122347, #0a1730); border: 1px solid #29416f; border-radius: 20px; padding: 25px; display: flex; flex-direction: column; min-height: 340px; }
+    .card.light { background: linear-gradient(150deg, #f8faff, #e9efff); color: #101b38; border-color: #d7e0f8; }
+    .status { align-self: flex-start; border-radius: 999px; padding: 5px 10px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; }
+    .available { background: #c8ffec; color: #087552; }
+    .soon { background: #e4dcff; color: #5b3bc0; }
+    .course-icon { font-size: 32px; margin: 17px 0 3px; }
+    .card h3 { margin: 3px 0 8px; font-size: 1.25rem; }
+    .card p { color: inherit; opacity: .78; font-size: 14px; margin: 0 0 15px; }
+    .card ul { margin: 0 0 22px; padding-left: 19px; font-size: 13px; opacity: .9; }
+    .card .button { width: 100%; margin-top: auto; }
+    .disabled { background: #dce2f0; color: #6d7895; cursor: not-allowed; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start; }
+    .about-grid p { color: var(--muted); }
+    .features { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .feature { display: flex; gap: 12px; align-items: flex-start; }
+    .feature-icon { flex: 0 0 40px; height: 40px; display: grid; place-items: center; border-radius: 12px; background: #1b3963; font-size: 19px; }
+    .feature h3 { font-size: 15px; margin: 0 0 4px; }
+    .feature p { font-size: 13px; margin: 0; }
+    .contact { padding-top: 0; }
+    .contact-box { border: 1px solid var(--line); border-radius: 22px; padding: 32px; background: linear-gradient(110deg, #10264a, #16133c); display: flex; justify-content: space-between; align-items: center; gap: 25px; }
+    .contact-box h2 { margin: 0 0 8px; }
+    .contact-box p { margin: 0; color: var(--muted); }
+    footer { border-top: 1px solid var(--line); padding: 24px 0; color: var(--muted); font-size: 13px; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 20px; align-items: center; }
+    .footer-inner strong { color: white; }
+    @media (max-width: 800px) {
+      nav { display: none; }
+      .hero { padding: 58px 0; }
+      .hero-grid, .about-grid { grid-template-columns: 1fr; }
+      .hero-art { min-height: 270px; }
+      .cards { grid-template-columns: 1fr; }
+      .card { min-height: auto; }
+      .contact-box { align-items: flex-start; flex-direction: column; }
+    }
+    @media (max-width: 480px) {
+      .brand { font-size: 13px; }
+      .logo { width: 42px; height: 42px; }
+      .features { grid-template-columns: 1fr; }
+      .floating { font-size: 12px; padding: 9px 11px; }
+      .footer-inner { align-items: flex-start; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="Digital Media Academy home">
+        <span class="logo">DMA</span>
+        <span>DIGITAL MEDIA<small>ACADEMY · LEARN. CREATE. GROW.</small></span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#home">Home</a><a href="#about">About</a><a href="#training">Training</a><a href="#why-us">Why Choose Us</a><a href="#contact">Contact</a>
+      </nav>
+      <a class="button primary" href="https://chat.whatsapp.com/Cv1jNxuuqx2AYfZXlazljB?s=cl&p=a&mlu=4&ilr=4" target="_blank" rel="noopener">Join Our Community ↗</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">✦ Free Digital Skills Training</span>
+          <h1>DIGITAL MEDIA<br><span>ACADEMY</span></h1>
+          <h2>Learn. Create. Grow.</h2>
+          <p>Welcome to Digital Media Academy, your gateway to learning valuable digital skills at no cost. Build your creative abilities, gain practical knowledge, and grow in the digital world—one skill at a time.</p>
+          <a class="button primary" href="#training">Explore Our Training&nbsp; →</a>
+        </div>
+        <div class="hero-art" aria-label="Creative digital editing illustration">
+          <div class="floating one">▶ Video Editing</div>
+          <div class="screen">
+            <div class="screen-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+            <div class="timeline">
+              <div class="preview">▶</div>
+              <div class="track"></div><div class="track"></div><div class="track"></div>
+            </div>
+          </div>
+          <div class="floating two">✦ Creative Skills</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="courses" id="training">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-tag">Start learning today</span>
+          <h2>Choose Your Training Path</h2>
+          <p>Start with our available course. More learning opportunities are on the way.</p>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <span class="status available">Available Now</span>
+            <div class="course-icon">🎬</div>
+            <h3>Video Editing Training</h3>
+            <p>Learn video editing from the basics and develop your skills through our free training programme.</p>
+            <ul><li>Beginner-friendly learning</li><li>Practical video editing lessons</li><li>WhatsApp learning community</li></ul>
+            <a class="button whatsapp" href="https://chat.whatsapp.com/Cv1jNxuuqx2AYfZXlazljB?s=cl&p=a&mlu=4&ilr=4" target="_blank" rel="noopener">☏ Join Free Training</a>
+          </article>
+          <article class="card light">
+            <span class="status soon">Coming Soon</span>
+            <div class="course-icon">🎨</div>
+            <h3>Graphic Design Training</h3>
+            <p>Get ready to learn graphic design, flyer creation, layout design, and other creative skills.</p>
+            <ul><li>Flyer and poster design</li><li>Branding and layout design</li><li>Practical creative projects</li></ul>
+            <span class="button disabled" aria-disabled="true">◷ Coming Soon</span>
+          </article>
+          <article class="card light">
+            <span class="status soon">Coming Soon</span>
+            <div class="course-icon">💻</div>
+            <h3>More Digital Skills</h3>
+            <p>Stay tuned for future programmes designed to help you grow your digital skills.</p>
+            <ul><li>Content creation</li><li>Social media skills</li><li>More learning opportunities</li></ul>
+            <span class="button disabled" aria-disabled="true">◷ Coming Soon</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container about-grid">
+        <div>
+          <span class="section-tag">About the academy</span>
+          <h2>Free learning. Real creative growth.</h2>
+          <p>Digital Media Academy is a free online learning initiative designed to help people build practical digital skills. We believe everyone should have the opportunity to learn, create, and grow, regardless of their starting point.</p>
+          <p>Our training community helps learners connect, ask questions, and take the next step in their creative journey.</p>
+        </div>
+        <div id="why-us">
+          <span class="section-tag">Why choose us?</span>
+          <div class="features" style="margin-top:18px">
+            <div class="feature"><span class="feature-icon">🎓</span><div><h3>Free Training</h3><p>Learn without course fees.</p></div></div>
+            <div class="feature"><span class="feature-icon">🤝</span><div><h3>Supportive Community</h3><p>Learn and grow together.</p></div></div>
+            <div class="feature"><span class="feature-icon">🧩</span><div><h3>Beginner-Friendly</h3><p>Start with the basics.</p></div></div>
+            <div class="feature"><span class="feature-icon">🚀</span><div><h3>Practical Growth</h3><p>Build skills for the future.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container contact-box">
+        <div><h2>Ready to start learning?</h2><p>Join the Video Editing Training community on WhatsApp and begin your journey.</p></div>
+        <a class="button whatsapp" href="https://chat.whatsapp.com/Cv1jNxuuqx2AYfZXlazljB?s=cl&p=a&mlu=4&ilr=4" target="_blank" rel="noopener">Join Our WhatsApp Community ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <strong>DMA · Digital Media Academy</strong>
+      <span>© <span id="year"></span> Digital Media Academy. Learn. Create. Grow.</span>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
