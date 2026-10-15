@@ -115,14 +115,21 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 14px;
+  gap: 15px;
   flex-wrap: wrap;
   margin: 22px 0 10px;
 }
 
 .social-links a {
-  text-decoration: none;
+  width: 44px;
+  height: 44px;
   display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: white;
+  font-size: 21px;
+  text-decoration: none;
   transition: transform 0.2s ease;
 }
 
@@ -130,39 +137,25 @@
   transform: translateY(-4px);
 }
 
-.social-icon {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-}
-
-.facebook {
+.social-links a:nth-child(1) {
   background: #1877F2;
 }
 
-.whatsapp {
+.social-links a:nth-child(2) {
   background: #25D366;
 }
 
-.instagram {
+.social-links a:nth-child(3) {
   background: #E1306C;
-  font-size: 13px;
 }
 
-.x-social {
+.social-links a:nth-child(4) {
   background: #000000;
 }
 
-.tiktok {
+.social-links a:nth-child(5) {
   background: #111111;
-  font-size: 25px;
-}
+                          }
   </style>
 </head>
 <body>
@@ -288,37 +281,37 @@
             His vision is to combine creativity, technology, and
             leadership to make a positive impact locally and globally.
         </p>
-<!-- FOUNDER SOCIAL MEDIA LINKS -->
+<<!-- FOUNDER SOCIAL MEDIA LINKS -->
 <div class="social-links">
 
   <a href="https://www.facebook.com/profile.php?id=61585503120295"
      target="_blank" rel="noopener noreferrer"
      aria-label="Facebook">
-    <span class="social-icon facebook">f</span>
+    <i class="fa-brands fa-facebook-f"></i>
   </a>
 
   <a href="https://wa.me/2347042591011"
      target="_blank" rel="noopener noreferrer"
      aria-label="WhatsApp">
-    <span class="social-icon whatsapp">W</span>
+    <i class="fa-brands fa-whatsapp"></i>
   </a>
 
   <a href="https://www.instagram.com/godswilludo90/"
      target="_blank" rel="noopener noreferrer"
      aria-label="Instagram">
-    <span class="social-icon instagram">IG</span>
+    <i class="fa-brands fa-instagram"></i>
   </a>
 
   <a href="https://x.com/god_udo21411"
      target="_blank" rel="noopener noreferrer"
      aria-label="X">
-    <span class="social-icon x-social">X</span>
+    <i class="fa-brands fa-x-twitter"></i>
   </a>
 
   <a href="https://www.tiktok.com/@godswilludo295"
      target="_blank" rel="noopener noreferrer"
      aria-label="TikTok">
-    <span class="social-icon tiktok">♪</span>
+    <i class="fa-brands fa-tiktok"></i>
   </a>
 
 </div>
