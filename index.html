@@ -54,6 +54,60 @@
     @media(max-width:850px){.navlinks{gap:15px}.hero-grid{grid-template-columns:1fr;gap:25px}.hero{padding:70px 0 60px}.visual{min-height:310px}.learning-card{transform:none}.course-grid{gap:16px}.about-box{grid-template-columns:1fr}.about-box .btn{justify-self:start}.support-inner{grid-template-columns:1fr}.feature-grid{gap:15px}}
     @media(max-width:650px){.container{width:min(100% - 30px,1120px)}.topbar{font-size:.75rem}.nav{min-height:70px}.brand img{width:42px;height:42px}.brand-name{font-size:.92rem}.brand-tag{font-size:.67rem}.menu-toggle{display:block}.navlinks{display:none;position:absolute;top:70px;left:0;right:0;background:white;padding:18px 20px 22px;border-bottom:1px solid var(--line);box-shadow:0 16px 25px rgba(20,20,50,.08);flex-direction:column;align-items:stretch;gap:0}.navlinks.open{display:flex}.navlinks a{padding:11px 4px}.navlinks .nav-cta{text-align:center;margin-top:8px}.hero{padding:58px 0 46px}h1{font-size:clamp(2.45rem,12vw,3.5rem)}.hero-copy{font-size:.98rem}.hero-actions .btn{flex:1 1 auto}.visual{min-height:295px}.learning-card{padding:20px}.stats-grid{gap:8px;padding:20px 0}.stat strong{font-size:.88rem}.stat span{font-size:.72rem}.stat{padding:0 5px}section{padding:65px 0}.section-head{margin-bottom:30px}.course-grid,.feature-grid{grid-template-columns:1fr}.course{padding:22px}.why{padding-top:60px}.about-band{padding-bottom:65px}.about-box{padding:27px 23px}.support-actions{flex-direction:column;align-items:stretch}.footer-top{flex-direction:column}.footer-links{gap:14px}.footer-links a{padding:2px 0}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+  
+  /* FOUNDER SECTION */
+.founder-card {
+    max-width: 750px;
+    margin: 30px auto;
+    padding: 30px 20px;
+    text-align: center;
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.founder-photo {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    object-position: center 20%;
+    border-radius: 50%;
+    border: 4px solid #6c63ff;
+    margin: 15px auto;
+    display: block;
+}
+
+.founder-card h2 {
+    color: #29245c;
+    margin-bottom: 20px;
+}
+
+.founder-card h3 {
+    color: #29245c;
+    font-size: 25px;
+    margin: 10px 0 5px;
+}
+
+.founder-title {
+    color: #6c63ff;
+    font-weight: bold;
+}
+
+.founder-card p {
+    line-height: 1.8;
+    color: #444444;
+}
+
+@media (max-width: 600px) {
+    .founder-card {
+        padding: 25px 15px;
+    }
+
+    .founder-photo {
+        width: 135px;
+        height: 135px;
+    }
+}
   </style>
 </head>
 <body>
@@ -145,6 +199,47 @@
     <section class="about-band"><div class="container"><div class="about-box"><div><span class="kicker">Our promise</span><h2>Your ideas deserve the skills to bring them to life.</h2><p>Digital Media Academy is built around a simple idea: learn something useful, practise it, and keep growing. Explore our courses and choose the learning path that suits you.</p></div><a class="btn btn-primary" href="#training">Find Your Course →</a></div></div></section>
 
     <section class="support" id="support"><div class="container support-inner"><div><span class="kicker">We're here to help</span><h2>Have a question? Let's talk.</h2><p>Need help with the website or want to ask about a training programme? Contact Digital Media Academy support on WhatsApp.</p></div><div class="support-actions"><a class="btn btn-primary" href="https://wa.me/2347042591011?text=Hello%20Digital%20Media%20Academy%20Support%2C%20I%20need%20help%20with%20your%20website." target="_blank" rel="noopener noreferrer">Chat with Support ↗</a><a class="btn btn-secondary" href="#training">View Courses</a></div></div></section>
+  
+  <!-- FOUNDER SECTION -->
+<section class="content-section" id="founder">
+    <div class="founder-card">
+
+        <h2>Meet Our Founder</h2>
+
+        <img
+            src="founder.jpg"
+            alt="Godswill Udo, Founder of Digital Media Academy"
+            class="founder-photo"
+        >
+
+        <h3>Godswill Udo</h3>
+
+        <p class="founder-title">
+            Founder, Digital Media Academy
+        </p>
+
+        <p>
+            Godswill Udo is a Nigerian student of History and
+            International Studies at Akwa Ibom State University.
+            He is a digital media professional, creative entrepreneur,
+            and aspiring diplomat with skills in mobile photography,
+            videography, video editing, and social media management.
+        </p>
+
+        <p>
+            He is passionate about leadership, international relations,
+            technology, creativity, and empowering young people with
+            valuable digital skills.
+        </p>
+
+        <p>
+            His vision is to combine creativity, technology, and
+            leadership to make a positive impact locally and globally.
+        </p>
+
+    </div>
+</section>
+<!-- END FOUNDER SECTION -->
   </main>
 
   <footer><div class="container"><div class="footer-top"><div class="footer-brand">Digital Media Academy<span>Learn. Create. Grow.</span></div><div class="footer-links"><a href="#home">Home</a><a href="#training">Courses</a><a href="#about">About</a><a href="#support">Contact Support</a></div></div><div class="copyright">© <span id="year"></span> Digital Media Academy. All rights reserved.</div></div></footer>
