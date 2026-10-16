@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://digitalmediaacademy861.github.io/digital-media-academy/sitemap.xml
