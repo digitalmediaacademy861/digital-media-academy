@@ -338,3 +338,20 @@ body.dark h1,body.dark h2,body.dark h3{font-family:inherit;color:#fff;letter-spa
   .cover{padding-top:32px;min-height:calc(100vh - 76px - 60px);min-height:calc(100svh - 76px - 60px)}
   .auth-sec{padding-top:32px}
 }
+
+/* Members only: pages stay hidden until the visitor is known to be logged in */
+html.gate-wait body > *{visibility:hidden}
+html.gate-wait body::after{content:"Checking your login...";position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:var(--bg);color:var(--muted);font:500 16px 'Public Sans',system-ui,sans-serif;visibility:visible;z-index:200}
+html.gate-trouble body::after{display:none}
+html.gate-wait body > .gate-msg{visibility:visible}
+.gate-msg{position:fixed;inset:0;z-index:300;display:flex;align-items:center;justify-content:center;padding:20px;background:var(--bg)}
+.gate-card{max-width:420px;width:100%;background:#fff;color:#2b2d42;border:1px solid #e6e0d6;border-radius:14px;padding:28px 24px;text-align:center}
+.gate-card h2{font-size:24px;margin-bottom:8px;color:#10122b}
+.gate-card p{color:#5f6275;margin-bottom:18px}
+.gate-card .btn{margin-top:10px}
+
+/* Menu: what a visitor sees before and after logging in */
+.needs-login{display:none}
+body.is-in .needs-login{display:list-item}
+body.is-in .guest-only{display:none}
+.guest-note{font-size:16px;color:#a3abc4;margin:-10px 0 22px;max-width:560px}

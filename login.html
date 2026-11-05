@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login or Sign up | Digital Media Academy</title>
+<meta name="description" content="Log in or create your Digital Media Academy student account.">
+<meta name="theme-color" content="#10122b">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Digital Media Academy">
+<meta property="og:title" content="Login or Sign up | Digital Media Academy">
+<meta property="og:description" content="Log in or create your Digital Media Academy student account.">
+<meta property="og:url" content="https://digitalmediaacademy861.github.io/digital-media-academy/login.html">
+<meta property="og:image" content="https://digitalmediaacademy861.github.io/digital-media-academy/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Digital Media Academy logo. Learn. Create. Grow.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Login or Sign up | Digital Media Academy">
+<meta name="twitter:description" content="Log in or create your Digital Media Academy student account.">
+<meta name="twitter:image" content="https://digitalmediaacademy861.github.io/digital-media-academy/og-image.png">
+<link rel="icon" href="logo.png">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="DMA">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="dma.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap bar">
+    <a class="brand" href="index.html"><img src="logo-mark.png" alt="" height="26"><span>Digital Media Academy</span></a>
+    <a class="menu-link" href="menu.html">Menu</a>
+  </div>
+</header>
+
+<main>
+<section class="page-hero">
+  <div class="wrap">
+    <p class="eyebrow">Student account</p>
+    <h1>Login or create your account</h1>
+    <p>Your account gives you a personal profile on the Academy site.</p>
+  </div>
+</section>
+
+<section class="auth-sec">
+  <div class="wrap narrow">
+    <div class="banner" id="notConnected" hidden>Accounts are not switched on yet. You can look around, but signing up will work once the Academy finishes the setup.</div>
+
+    <div class="auth-card" id="authCard">
+      <div class="tabs" role="tablist" aria-label="Login or sign up">
+        <button type="button" role="tab" id="tabLogin" aria-selected="true" aria-controls="loginPanel">Login</button>
+        <button type="button" role="tab" id="tabSignup" aria-selected="false" aria-controls="signupPanel">Sign up</button>
+      </div>
+
+      <div id="loginPanel" role="tabpanel" aria-labelledby="tabLogin">
+        <h2>Welcome back</h2>
+        <p class="sub">Log in with the email and password you signed up with.</p>
+        <form id="loginForm" novalidate>
+          <div class="field"><label for="li-email">Email address</label><input id="li-email" type="email" autocomplete="email" inputmode="email" required></div>
+          <div class="field"><label for="li-pw">Password</label>
+            <div class="pw-row"><input id="li-pw" type="password" autocomplete="current-password" required><button type="button" class="show-pw" data-for="li-pw" aria-label="Show password">Show</button></div>
+          </div>
+          <button class="btn btn-primary wide" type="submit" id="loginBtn">Login</button>
+          <p class="form-msg" id="loginMsg" role="alert"></p>
+          <p class="form-ok" id="loginOk" role="status"></p>
+          <p class="small-note"><button type="button" class="link-btn" id="forgotBtn">Forgot your password?</button></p>
+        </form>
+      </div>
+
+      <div id="signupPanel" role="tabpanel" aria-labelledby="tabSignup" hidden>
+        <h2>Create your account</h2>
+        <p class="sub">It takes less than a minute.</p>
+        <form id="signupForm" novalidate>
+          <div class="field"><label for="su-name">Full name</label><input id="su-name" type="text" maxlength="60" autocomplete="name" required></div>
+          <div class="field"><label for="su-email">Email address</label><input id="su-email" type="email" autocomplete="email" inputmode="email" required></div>
+          <div class="field"><label for="su-pw">Password</label>
+            <div class="pw-row"><input id="su-pw" type="password" autocomplete="new-password" minlength="8" required><button type="button" class="show-pw" data-for="su-pw" aria-label="Show password">Show</button></div>
+            <span class="hint-s">At least 8 characters.</span>
+          </div>
+          <button class="btn btn-primary wide" type="submit" id="signupBtn">Create account</button>
+          <p class="form-msg" id="signupMsg" role="alert"></p>
+        </form>
+      </div>
+
+      <div class="or">or</div>
+      <button type="button" class="btn-google" id="googleBtn"><svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.8 2.4 30.3 0 24 0 14.6 0 6.5 5.4 2.6 13.2l7.9 6.1C12.4 13.6 17.7 9.5 24 9.5z"/><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 3-2.3 5.5-4.8 7.2l7.6 5.9c4.4-4.1 7-10.1 7-17.6z"/><path fill="#FBBC05" d="M10.5 28.7c-.5-1.5-.8-3-.8-4.7s.3-3.2.8-4.7l-7.9-6.1C.9 16.4 0 20.1 0 24s.9 7.6 2.6 10.8l7.9-6.1z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.6-5.9c-2.1 1.4-4.9 2.3-8.3 2.3-6.3 0-11.6-4.1-13.5-9.8l-7.9 6.1C6.5 42.6 14.6 48 24 48z"/></svg><span>Continue with Google</span></button>
+      <p class="form-msg" id="googleMsg" role="alert"></p>
+      <p class="small-note">We use your name and email only to run your Academy account. We never share them.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="fwrap">
+    <div class="f-brand">
+      <span class="chip"><img src="logo-mark.png" alt="" height="22"></span>
+      <div><strong>Digital Media Academy</strong><small>Learn. Create. Grow.</small></div>
+    </div>
+    <ul class="f-links" aria-label="Footer menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="login.html">Login</a></li>
+      <li><a href="https://wa.me/2347042591011?text=Hello%20Digital%20Media%20Academy%20Support%2C%20I%20need%20help." target="_blank" rel="noopener">Support</a></li>
+    </ul>
+    <p class="f-copy">&copy; <span id="yr"></span> Digital Media Academy. All rights reserved.</p>
+  </div>
+</footer>
+
+<a class="float-chat" href="https://wa.me/2347042591011?text=Hello%20Digital%20Media%20Academy%20Support%2C%20I%20have%20a%20question." target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3h16a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H9l-5 4v-4H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/></svg>
+  Chat with us
+</a>
+
+<script src="dma.js"></script>
+<script type="module">
+import { configured, onUser, signUp, logIn, googleLogin, resetPassword, friendlyError } from './auth.js';
+
+const $ = (id) => document.getElementById(id);
+let busy = false;
+// The page the visitor wanted before they were sent here to log in
+const NEXT = new URLSearchParams(location.search).get('next');
+
+/* tabs */
+function showTab(which) {
+  const login = which !== 'signup';
+  $('loginPanel').hidden = !login; $('signupPanel').hidden = login;
+  $('tabLogin').setAttribute('aria-selected', login ? 'true' : 'false');
+  $('tabSignup').setAttribute('aria-selected', login ? 'false' : 'true');
+  history.replaceState(null, '', login ? location.pathname : '#signup');
+}
+$('tabLogin').addEventListener('click', () => showTab('login'));
+$('tabSignup').addEventListener('click', () => showTab('signup'));
+showTab(location.hash === '#signup' ? 'signup' : 'login');
+
+/* show / hide password */
+document.querySelectorAll('.show-pw').forEach((b) => b.addEventListener('click', () => {
+  const input = $(b.dataset.for); const show = input.type === 'password';
+  input.type = show ? 'text' : 'password'; b.textContent = show ? 'Hide' : 'Show';
+  b.setAttribute('aria-label', show ? 'Hide password' : 'Show password');
+}));
+
+const goToAccount = () => { location.href = /^(courses|certificates|scholarships|about|founders|menu|account)\.html$/.test(NEXT || '') ? NEXT : 'account.html'; };
+const emailOk = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
+// Collapse extra spaces, and give words typed all in lower case or all in capitals normal name capitals
+const tidy = (s) => s.replace(/\s+/g, ' ').trim().replace(/[\p{L}\p{M}]+/gu, (w) => {
+  if (w.length === 1) return w.toUpperCase();
+  return (w === w.toLowerCase() || w === w.toUpperCase()) ? w.charAt(0).toUpperCase() + w.slice(1).toLowerCase() : w;
+});
+
+function setBusy(btn, on, label) { busy = on; btn.disabled = on; if (label) btn.textContent = on ? 'Please wait...' : label; }
+
+if (!configured) {
+  $('notConnected').hidden = false;
+} else {
+  // Someone who is already logged in goes straight to their profile
+  onUser((u) => { if (u && !busy) goToAccount(); }).catch(() => {});
+}
+
+$('signupForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const msg = $('signupMsg'); msg.textContent = '';
+  const name = tidy($('su-name').value), email = $('su-email').value.trim(), pw = $('su-pw').value;
+  if (name.length < 2) { msg.textContent = 'Please type your full name.'; return; }
+  if (!emailOk(email)) { msg.textContent = 'Please enter a valid email address.'; return; }
+  if (pw.length < 8) { msg.textContent = 'Your password needs at least 8 characters.'; return; }
+  if (!configured) { msg.textContent = 'Accounts are not switched on yet. Please try again later.'; return; }
+  const btn = $('signupBtn'); setBusy(btn, true, 'Create account');
+  try { await signUp(name, email, pw); goToAccount(); }
+  catch (err) { msg.textContent = friendlyError(err); setBusy(btn, false, 'Create account'); }
+});
+
+$('loginForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const msg = $('loginMsg'); msg.textContent = ''; $('loginOk').textContent = '';
+  const email = $('li-email').value.trim(), pw = $('li-pw').value;
+  if (!emailOk(email)) { msg.textContent = 'Please enter a valid email address.'; return; }
+  if (!pw) { msg.textContent = 'Please enter your password.'; return; }
+  if (!configured) { msg.textContent = 'Accounts are not switched on yet. Please try again later.'; return; }
+  const btn = $('loginBtn'); setBusy(btn, true, 'Login');
+  try { await logIn(email, pw); goToAccount(); }
+  catch (err) { msg.textContent = friendlyError(err); setBusy(btn, false, 'Login'); }
+});
+
+$('forgotBtn').addEventListener('click', async () => {
+  const msg = $('loginMsg'), ok = $('loginOk'); msg.textContent = ''; ok.textContent = '';
+  const email = $('li-email').value.trim();
+  if (!emailOk(email)) { msg.textContent = 'Type your email address above first, then tap "Forgot your password?".'; return; }
+  if (!configured) { msg.textContent = 'Accounts are not switched on yet. Please try again later.'; return; }
+  try { await resetPassword(email); ok.textContent = 'If there is an account for that email, we have sent a link to reset the password. Check your inbox and spam folder.'; }
+  catch (err) { msg.textContent = friendlyError(err); }
+});
+
+$('googleBtn').addEventListener('click', async () => {
+  const msg = $('googleMsg'); msg.textContent = '';
+  if (!configured) { msg.textContent = 'Accounts are not switched on yet. Please try again later.'; return; }
+  const btn = $('googleBtn'); btn.disabled = true; busy = true;
+  try { await googleLogin(); goToAccount(); }
+  catch (err) { msg.textContent = friendlyError(err); btn.disabled = false; busy = false; }
+});
+</script>
+</body>
+</html>
