@@ -1,8 +1,8 @@
 // Digital Media Academy service worker.
 // Network first, so visitors always get the latest page. The cache is only a fallback for when there is no internet.
-var CACHE = 'dma-v6';
+var CACHE = 'dma-v8';
 var FILES = ['./', 'index.html', 'menu.html', 'courses.html', 'scholarships.html', 'about.html', 'founders.html', 'login.html',
-  'dma.css', 'dma.js', 'gate.js', 'pay.js', 'pay-config.js', 'auth.js', 'firebase-config.js', 'account.html', 'certificates.html', 'logo-mark.png', 'flyer.jpg', 'founder.jpg', 'daniel.jpg', 'icon-192.png', 'icon-512.png'];
+  'dma.css', 'dma.js', 'gate.js', 'pay.js', 'terms.html', 'privacy.html', 'refund.html', 'pay-config.js', 'auth.js', 'firebase-config.js', 'account.html', 'certificates.html', 'logo-mark.png', 'flyer.jpg', 'founder.jpg', 'daniel.jpg', 'icon-192.png', 'icon-512.png'];
 
 self.addEventListener('install', function (e) {
   e.waitUntil(
@@ -34,3 +34,8 @@ self.addEventListener('fetch', function (e) {
       var copy = res.clone();
       caches.open(CACHE).then(function (c) { c.put(req, copy); });
       return res;
+    }).catch(function () {
+      return caches.match(req).then(function (hit) { return hit || caches.match('index.html'); });
+    })
+  );
+});
