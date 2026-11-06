@@ -34,3 +34,67 @@ export function signUp(name, email, password) {
     return f.mod.createUserWithEmailAndPassword(f.auth, email, password).then(function (cred) {
       var user = cred.user;
       return f.mod.updateProfile(user, { displayName: name })
+        .catch(function () {})
+        .then(function () { return f.mod.sendEmailVerification(user).catch(function () {}); })
+        .then(function () { return user; });
+    });
+  });
+}
+
+export function logIn(email, password) {
+  return load().then(function (f) {
+    return f.mod.signInWithEmailAndPassword(f.auth, email, password).then(function (c) { return c.user; });
+  });
+}
+
+export function googleLogin() {
+  return load().then(function (f) {
+    return f.mod.signInWithPopup(f.auth, new f.mod.GoogleAuthProvider()).then(function (c) { return c.user; });
+  });
+}
+
+export function resetPassword(email) {
+  return load().then(function (f) { return f.mod.sendPasswordResetEmail(f.auth, email); });
+}
+
+export function resendVerification() {
+  return load().then(function (f) {
+    if (!f.auth.currentUser) throw { code: 'auth/no-user' };
+    return f.mod.sendEmailVerification(f.auth.currentUser);
+  });
+}
+
+// A fresh sign-in token for the logged-in student (used to prove who is paying). null when signed out.
+export function getIdToken() {
+  return load().then(function (f) { return f.auth.currentUser ? f.auth.currentUser.getIdToken() : null; });
+}
+
+export function logOut() {
+  return load().then(function (f) { return f.mod.signOut(f.auth); });
+}
+
+// Turns Firebase's technical error codes into plain sentences
+export function friendlyError(e) {
+  var code = (e && e.code) || '';
+  var map = {
+    'auth/email-already-in-use': 'There is already an account with this email. Try logging in instead.',
+    'auth/invalid-email': 'That email address does not look right. Please check it.',
+    'auth/weak-password': 'Please choose a stronger password with at least 8 characters.',
+    'auth/missing-password': 'Please enter your password.',
+    'auth/invalid-credential': 'The email or password is not correct.',
+    'auth/wrong-password': 'The email or password is not correct.',
+    'auth/user-not-found': 'The email or password is not correct.',
+    'auth/user-disabled': 'This account has been switched off. Please contact support.',
+    'auth/too-many-requests': 'Too many attempts. Please wait a few minutes and try again.',
+    'auth/network-request-failed': 'No connection. Please check your internet and try again.',
+    'auth/popup-closed-by-user': 'The Google window was closed before finishing. Please try again.',
+    'auth/cancelled-popup-request': 'The Google window was closed before finishing. Please try again.',
+    'auth/popup-blocked': 'Your browser blocked the Google window. Allow pop-ups for this site and try again.',
+    'auth/operation-not-allowed': 'This sign-in method is not switched on yet. Please contact support.',
+    'auth/unauthorized-domain': 'This website address is not approved for sign-in yet. Please contact support.',
+    'auth/no-user': 'Please log in first.'
+  };
+  if (map[code]) return map[code];
+  if (!code) return 'We could not reach the sign-in service. Please check your connection and try again.';
+  return 'Something went wrong. Please try again, or message support on WhatsApp.';
+}
