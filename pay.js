@@ -32,4 +32,66 @@ function api(path, opts) {
     opts.headers = Object.assign({ 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' }, opts.headers || {});
     return fetch(WORKER_URL.replace(/\/$/, '') + path, opts).then(function (r) { return r.json().catch(function () { return {}; }); });
   });
-    }
+}
+
+function start() {
+  openModal();
+  if (!payReady) { show('lessons'); return; }            // payments not switched on yet
+  show('check');
+  userReady.then(function () { return api('/status'); }).then(function (d) {
+    if (d && d.paid) show('lessons'); else show('pay');
+  }).catch(function () { fail('We could not check your payment. Please check your connection and try again.', ''); });
+}
+
+function confirmPayment(ref) {
+  lastRef = ref; show('check');
+  api('/verify', { method: 'POST', body: JSON.stringify({ reference: ref }) }).then(function (d) {
+    if (d && d.paid) show('lessons');
+    else fail('We could not confirm your payment yet. If money left your account, tap "Check again" in a minute, or message support with your reference: ' + ref, ref);
+  }).catch(function () { fail('We could not reach the payment checker. If money left your account, tap "Check again", or message support with your reference: ' + ref, ref); });
+}
+
+function loadPaystack() {
+  return new Promise(function (resolve, reject) {
+    if (window.PaystackPop) return resolve();
+    var s = document.createElement('script');
+    s.src = 'https://js.paystack.co/v1/inline.js';
+    s.onload = resolve; s.onerror = function () { reject(new Error('paystack')); };
+    document.head.appendChild(s);
+  });
+}
+
+function pay() {
+  var btn = document.getElementById('payBtn');
+  btn.disabled = true;
+  Promise.all([userReady, loadPaystack()]).then(function (r) {
+    var u = r[0];
+    if (!u) throw new Error('login');
+    var ref = 'DMA_' + u.uid.slice(0, 6) + '_' + Date.now();
+    var handler = window.PaystackPop.setup({
+      key: PAYSTACK_PUBLIC_KEY,
+      email: u.email,
+      amount: PRICE_KOBO,
+      currency: 'NGN',
+      ref: ref,
+      metadata: { uid: u.uid, name: u.displayName || '', course: 'video-editing' },
+      callback: function (response) { confirmPayment(response.reference); },
+      onClose: function () { btn.disabled = false; }
+    });
+    handler.openIframe();
+  }).catch(function () {
+    btn.disabled = false;
+    document.getElementById('payMsg').textContent = 'We could not open the payment window. Please check your connection and try again.';
+  });
+}
+
+if (payReady) {
+  document.querySelectorAll('[data-open-lessons]').forEach(function (b) { b.textContent = 'Start learning · ' + price; });
+  document.querySelectorAll('.price-now').forEach(function (e) { e.textContent = price; });
+}
+document.querySelectorAll('[data-open-lessons]').forEach(function (b) { b.addEventListener('click', start); });
+document.getElementById('payBtn').addEventListener('click', pay);
+document.getElementById('errRetry').addEventListener('click', function () { if (lastRef) confirmPayment(lastRef); });
+document.getElementById('closeLessons').addEventListener('click', closeModal);
+modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
+document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
